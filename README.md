@@ -20,14 +20,14 @@ Dummy head and tail sentinel nodes eliminate edge cases in list manipulation.
 
 ## Build
 
-\```bash
+```bash
 mkdir build && cd build
 cmake ..
 make
-\```
+```
 
 ## Run Tests
 
-\```bash
+```bash
 ./test_lru
-\```
+```
