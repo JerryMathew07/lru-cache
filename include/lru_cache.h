@@ -2,6 +2,7 @@
 
 #include <unordered_map>
 #include <stdexcept>
+#include <shared_mutex>
 
 class LRUCache {
     private:
@@ -19,6 +20,7 @@ class LRUCache {
         std::unordered_map<int, Node*> map;
         Node* head; // dummy head - most recently used side
         Node* tail; // dummy tail - least recently used side
+        mutable std::shared_mutex mtx;
 
         void detach(Node* node);
         void insertFront(Node* node);

@@ -44,6 +44,7 @@ LRUCache::Node* LRUCache::removeLRU(){
 }
 
 int LRUCache::get(int key){
+    std::unique_lock<std::shared_mutex> lock(mtx);
     auto it = map.find(key);
 
     if(it == map.end()){
@@ -54,6 +55,7 @@ int LRUCache::get(int key){
 }
 
 void LRUCache::put(int key, int value){
+    std::unique_lock<std::shared_mutex> lock(mtx);
     auto it = map.find(key);
 
     if(it != map.end()){
@@ -74,6 +76,7 @@ void LRUCache::put(int key, int value){
 }
 
 void LRUCache::print() const{
+    std::shared_lock<std::shared_mutex> lock(mtx);
     Node* curr = head->next;
     std::cout << "Cache (MRU to LRU) :";
     while(curr != tail){
@@ -84,5 +87,6 @@ void LRUCache::print() const{
 }
 
 int LRUCache::size() const {
+    std::shared_lock<std::shared_mutex> lock (mtx);
     return (int) map.size();
 }
