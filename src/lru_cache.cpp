@@ -1,5 +1,6 @@
 #include "lru_cache.h"
 #include <iostream>
+#include <mutex>
 
 LRUCache::LRUCache(int cap): capacity(cap){
     if (cap <= 0){
