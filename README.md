@@ -1,6 +1,6 @@
 # LRU Cache - C++17
 
-An O(1) Least Recently Used cache implemented in C++ using a doubly linked list and hash map, with thread safety via 'std::mutex'.
+An O(1) Least Recently Used cache implemented in C++ using a doubly linked list and hash map, with thread safety via `std::mutex`.
 
 ## What It Does
 
