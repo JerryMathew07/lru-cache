@@ -3,18 +3,18 @@
 #include <unordered_map>
 #include <stdexcept>
 
-struct Node {
-    int key;
-    int value;
-    Node* prev;
-    Node* next;
-
-    Node(int k, int v)
-        : key(k), value(v), prev(nullptr), next(nullptr){}
-};
-
 class LRUCache {
     private:
+        struct Node {
+        int key;
+        int value;
+        Node* prev;
+        Node* next;
+
+        Node(int k, int v)
+            : key(k), value(v), prev(nullptr), next(nullptr){}
+        };
+
         int capacity;
         std::unordered_map<int, Node*> map;
         Node* head; // dummy head - most recently used side

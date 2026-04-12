@@ -37,7 +37,7 @@ void LRUCache::moveToFront(Node* node){
     insertFront(node);
 }
 
-Node* LRUCache::removeLRU(){
+LRUCache::Node* LRUCache::removeLRU(){
     Node* lru = tail->prev;
     detach(lru);
     return lru;
